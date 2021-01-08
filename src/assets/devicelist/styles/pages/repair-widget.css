@@ -1,9 +1,11 @@
 .repair-widget {
-  margin-top: 200px !important;
+  /* margin-top: 200px !important; */
+  position: relative;
+  top: 200px;
 }
 
 .back-to-top {
-  position: absolute;
+  position: fixed;
   left: 20px;
   top: 500px;
   width: 35px;
@@ -91,7 +93,7 @@
   margin-top: 0.8vw;
   font-weight: bold;
   padding: 0 10px;
-  font-size: 1.2vw;
+  font-size: 1vw;
 }
 
 .widget-main-container {
@@ -124,6 +126,7 @@
 .device-repair-item > p {
   font-weight: bold;
   padding: 0 10px;
+  font-size: 13.5px;
 }
 
 .estimate-times-div {
@@ -148,6 +151,32 @@
 
 .repair-summary-content-div {
   display: block;
+  overflow: scroll !important;
+  overflow-x: hidden !important;
+  height: 500px;
+  /* box-shadow: inset 0px 0px 4px 4px rgba(0,0,0,0.1);
+  padding: 10px; */
+}
+
+/* width */
+.repair-summary-content-div::-webkit-scrollbar {
+  width: 3px;
+  cursor: pointer;
+}
+
+/* Track */
+.repair-summary-content-div::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+ 
+/* Handle */
+.repair-summary-content-div::-webkit-scrollbar-thumb {
+  background: #999;
+}
+
+/* Handle on hover */
+.repair-summary-content-div::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }
 
 .repair-summary-div {
@@ -156,10 +185,12 @@
   padding: 10px;
   margin-bottom: 10px;
   display: flex;
+  position: relative;
 }
 
 .repair-summary-img {
   margin-right: 10px;
+  width: 54px;
 }
 
 .repair-summary-img > img {
@@ -230,6 +261,128 @@
   font-size: 12px;
 }
 
+.useful-textarea-div {
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 20px;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.useful-textarea {
+  border: none;
+  margin: 20px;
+  font-size: 15px;
+  font-family: 'POPPINS';
+  width: 87%;
+  outline: none;
+  height: 250px;
+}
+
+.repair-service-summary-card {
+  height: auto !important;
+}
+
+.repair-service-summary-title {
+  text-align: center;
+  font-size: 25px !important;
+  font-weight: bold !important;
+  margin-bottom: 5px !important;
+}
+
+.quote-component-content {
+  text-align: center;
+  font-size: 18px !important;
+  font-weight: normal !important;
+}
+
+.repair-service-summary-detail-container {
+  width: 100% !important;
+  margin: 20px 0 !important;
+}
+
+.repair-service-summary-detail-container .every-container .topic {
+  font-weight: 900 !important;
+  margin-bottom: 15px !important;
+  font-size: 17px !important;
+}
+
+.repair-service-summary-detail-container .every-container .details {
+  font-weight: lighter !important;
+  margin-bottom: 5px;
+  font-size: 17px !important;
+}
+
+.repair-service-summary-detail-container .every-container .bolder {
+  font-weight: 600 !important;
+}
+
+.repair-service-summary-flex-container {
+  display: flex;
+  padding: 0 10px;
+}
+
+.repair-service-summary-detail-container .bordered {
+  border-bottom: 1px solid #BDBFC3;
+  border-top: 1px solid #BDBFC3;
+  margin-bottom: 15px;
+}
+
+.repair-service-summary-flex-container .topic {
+  padding: 3px 0;
+  font-weight: bold;
+  font-size: 17px;
+  width: 50%;
+}
+
+.repair-service-summary-flex-container .details {
+  padding: 3px 0;
+  font-weight: normal;
+  font-size: 17px;
+  width: 50%;
+}
+
+.select-mail-in-radio {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.select-mail-in-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 350px;
+  margin: 10px 0 0;
+}
+
+.select-mail-in-text {
+  font-size: 16px;
+  /* margin: 5px 0; */
+}
+
+.quote-container {
+  padding: 150px 30px;
+}
+
+.quote-image {
+  margin: 0px auto 30px;
+  text-align: center;
+}
+
+.quote-image img {
+  width: 100px;
+}
+
+.repair-trash-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.repair-trash-icon:hover {
+  transform: scale(1.2);
+}
+
 @media (max-width: 1100px) {
   .booking-select-timezone {
     font-size: 10px;
@@ -240,13 +393,70 @@
   .booking-select-timezone {
     font-size: 11px;
   }
+  .booking-card {
+    height: 600px !important;
+  }
+  .repair-summary-card {
+    height: auto !important;
+  }
+  .useful-textarea-div {
+    height: 40vw;
+  }
+  .useful-textarea {
+    font-size: 2vw;
+    height: 35vw;
+  }
 }
 
 @media (max-width: 600px) {
   .booking-card {
-    height: 900px;
+    height: auto !important;
   }
-  .repair-summary-card {
-    height: 370px;
+  .useful-textarea-div {
+    height: 300px;
+  }
+  .useful-textarea {
+    font-size: 3vw;
+    height: 250px;
+  }
+  .repair-service-summary-detail-container .every-container .topic,
+  .repair-service-summary-detail-container .every-container .details {
+    text-align: center;
+    font-size: 3.5vw !important;
+  }
+  .repair-service-summary-title {
+    font-size: 4.3vw !important;
+    margin-bottom: 15px !important;
+  }
+  .quote-component-content {
+    font-size: 3.3vw !important;
+  }
+  .repair-service-summary-flex-container .topic,
+  .repair-service-summary-flex-container .details {
+    font-size: 3.5vw;
+  }
+  .booking-select-timezone {
+    font-size: 9.5px;
+  }
+  .repair-widget-title {
+    text-align: center !important;
+    font-size: 5.5vw !important;
+  }
+  .repair-summary-title {
+    text-align: left !important;
+    font-size: 3.5vw !important;
+    margin-bottom: 10px !important;
+  }
+  .select-mail-in-container {
+    width: 85%;
+    margin: 10px auto 0;
+  }
+  .select-mail-in-text {
+    font-size: 3vw;
+    margin: 5px 0;
+  }
+  .select-mail-in-radio {
+    margin-top: 5px;
+    font-size: 3vw;
   }
 }

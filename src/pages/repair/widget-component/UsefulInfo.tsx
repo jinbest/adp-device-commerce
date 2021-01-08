@@ -2,6 +2,7 @@ import React, {useState, useEffect, useCallback} from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { Card } from './'
 import { Button } from '../../../components'
+import RepairSummary from './RepairSummary'
 
 type Props = {
   data: any;
@@ -69,52 +70,16 @@ const UsefulInfo = ({data, subDomain, step, handleStep, handleChangeChooseData, 
           </Card>          
         </Grid>
         <Grid item xs={12} md={5}>
-          <Card className='repair-summary-card'>
-            <div className='repair-choose-device-container'>
-              <Typography className='topic-title'>Repair summary</Typography>
-              <div className='repair-summary-content-div'>
-                {repairWidgetData.deviceBrand && repairWidgetData.deviceBrand.map((item:any, index:number) => {
-                  return (
-                    <React.Fragment key={index}>
-                      {repairWidgetData.chooseRepair[index].map((chooseItem:any, chooseIndex:number) => (
-                        <div key={chooseIndex} className='repair-summary-div'>
-                          <div className='repair-summary-img'><img src={iPhoneWhole.default} /></div>
-                          <div>
-                            <Typography className='repair-summary-title'>
-                              {item.name + ' ' + repairWidgetData.deviceModel[index].name}
-                            </Typography>
-                            <Typography className='repair-summary-service'>Repair Service:</Typography>
-                            <p className='repair-summary-service-child'>{chooseItem.name}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </React.Fragment>
-                  )
-                })}
-                <div className='repair-summary-div'>
-                  <div>
-                    <Typography className='repair-summary-title'>{repairWidgetData.deliveryMethod.method}</Typography>
-                    {caseKey === 1 && <Typography className='repair-summary-service'>Pick Up From</Typography>}
-                    {caseKey === 0 && <Typography className='repair-summary-service'>Send To</Typography>}
-                    {caseKey > 0 && <p className='repair-summary-service-child'>{repairWidgetData.bookData[caseKey].address}</p>}
-                    {caseKey === 0 && <p className='repair-summary-service-child' style={{marginBottom: '15px'}}>{repairWidgetData.bookData[caseKey].sendTo}</p>}
-                    {caseKey === 0 && <Typography className='repair-summary-service'>Return To</Typography>}
-                    {caseKey === 0 && <p className='repair-summary-service-child'>
-                      {repairWidgetData.contactDetails.address1}
-                    </p>}
-                    {caseKey > 0 && <p className='repair-summary-service-child'>
-                      {
-                        repairWidgetData.bookData[caseKey].week + ', ' + 
-                        repairWidgetData.bookData[caseKey].month + ' ' + 
-                        repairWidgetData.bookData[caseKey].day + ', ' + 
-                        repairWidgetData.bookData[caseKey].year + ' at ' + 
-                        repairWidgetData.bookData[caseKey].time
-                      }
-                    </p>}
-                  </div>
-                </div>
-              </div>
-            </div>
+          <Card className='repair-summary-card'>            
+            <RepairSummary 
+              repairWidgetData={repairWidgetData} 
+              step={step} 
+              handleChangeChooseData={handleChangeChooseData} 
+              subDomain={subDomain} 
+              themeCol={themeCol} 
+              showInfo={true}
+              caseKey={caseKey}
+            />
           </Card>
         </Grid>
       </Grid>

@@ -3,6 +3,7 @@ import { Grid, Typography } from '@material-ui/core'
 import { Card } from './'
 import { Button, CustomSelect, CustomCalendar, InputComponent } from '../../../components'
 import CustomBookTime from './CustomBookTime'
+import RepairSummary from './RepairSummary'
 
 type Props = {
   data: any;
@@ -221,29 +222,14 @@ const BookTime = ({data, subDomain, step, caseKey, handleStep, handleChangeChoos
         </Grid>
         <Grid item xs={12} md={5}>
           <Card className='repair-summary-card'>
-            <div className='repair-choose-device-container'>
-              <Typography className='topic-title'>Repair summary</Typography>
-              <div className='repair-summary-content-div'>
-                {repairWidgetData.deviceBrand && repairWidgetData.deviceBrand.map((item:any, index:number) => {
-                  return (
-                    <React.Fragment key={index}>
-                      {repairWidgetData.chooseRepair[index].map((chooseItem:any, chooseIndex:number) => (
-                        <div key={chooseIndex} className='repair-summary-div'>
-                          <div className='repair-summary-img'><img src={iPhoneWhole.default} /></div>
-                          <div>
-                            <Typography className='repair-summary-title'>
-                              {item.name + ' ' + repairWidgetData.deviceModel[index].name}
-                            </Typography>
-                            <Typography className='repair-summary-service'>Repair Service:</Typography>
-                            <p className='repair-summary-service-child'>{chooseItem.name}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </React.Fragment>
-                  )
-                })}
-              </div>
-            </div>
+            <RepairSummary 
+              repairWidgetData={repairWidgetData} 
+              step={step} 
+              handleChangeChooseData={handleChangeChooseData} 
+              subDomain={subDomain} 
+              themeCol={themeCol} 
+              caseKey={caseKey}
+            />
           </Card>
         </Grid>
       </Grid>

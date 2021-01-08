@@ -2,6 +2,7 @@ import React, {useState, useEffect, useCallback} from 'react'
 import { Card, PlusSVG } from './'
 import { Grid, Typography } from '@material-ui/core'
 import { Search, Button } from '../../../components'
+import RepairSummary from './RepairSummary'
 
 /* eslint-disable */
 type Props = {
@@ -336,29 +337,14 @@ const ChooseDevice = ({data, stepName, step, subDomain, handleStep, handleChange
             }
 
             {(stepName === 'dropOffDevicce' || stepName === 'receiveQuote') && 
-              <div className='repair-choose-device-container'>
-                <Typography className='topic-title'>Repair summary</Typography>
-                <div className='repair-summary-content-div'>
-                  {repairWidgetData.deviceBrand && repairWidgetData.deviceBrand.map((item:any, index:number) => {
-                    return (
-                      <React.Fragment key={index}>
-                        {repairWidgetData.chooseRepair[index].map((chooseItem:any, chooseIndex:number) => (
-                          <div key={chooseIndex} className='repair-summary-div'>
-                            <div className='repair-summary-img'><img src={iPhoneWhole.default} /></div>
-                            <div>
-                              <Typography className='repair-summary-title'>
-                                {item.name + ' ' + repairWidgetData.deviceModel[index].name}
-                              </Typography>
-                              <Typography className='repair-summary-service'>Repair Service:</Typography>
-                              <p className='repair-summary-service-child'>{chooseItem.name}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </React.Fragment>
-                    )
-                  })}
-                </div>
-              </div>
+              <RepairSummary 
+                repairWidgetData={repairWidgetData} 
+                step={step} 
+                handleChangeChooseData={handleChangeChooseData} 
+                subDomain={subDomain} 
+                themeCol={themeCol} 
+                caseKey={0}
+              />
             }
 
           </Card>

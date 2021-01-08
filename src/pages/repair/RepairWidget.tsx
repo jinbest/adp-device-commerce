@@ -160,7 +160,7 @@ class RepairWidget extends React.Component<Props, MyState> {
       case 2:
         let cntChooseRepair = repairWidgetStore.chooseRepair;
         const counter = chooseData.counter;
-        if (cntChooseRepair.length === counter) {
+        if (cntChooseRepair.length >= counter) {
           cntChooseRepair[counter-1] = chooseData.data;
         } else {
           cntChooseRepair.push(chooseData.data);

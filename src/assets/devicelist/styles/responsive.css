@@ -14,9 +14,6 @@
   .footer-device-list {
     display: none;
   }
-  .footer-device-response {
-    display: block
-  }
   .repair-section-title-1 {
     font-size: 45px !important;
   }
@@ -49,20 +46,40 @@
     margin-top: 1vw;
   }
   .customized-card-height {
-    height: 400px;
+    height: auto !important;
+    min-height: 200px !important;
   }
   .device-repair-item > p {
-    font-size: 2.3vw;
+    font-size: 2.1vw;
   }
   .repair-card-button p {
     display: none;
   }
   .repair-summary-content-div {
     display: flex;
+    flex-wrap: wrap;
+    overflow: hidden !important;
+    height: auto;
   }
   .repair-summary-div {
-    width: 50%;
+    width: 43%;
     margin-right: 2%;
+  }
+  .repair-widget-card {
+    height: 65vw;
+  }
+  .input-component {
+    font-size: 2vw !important;
+  }
+  .footer-device-list, .footer-title {
+    display: none;
+  }
+  .footer-device-response {
+    display: block
+  }
+  .footer {
+    background-image: url('../img/footer/footer-shape-mobile.png');
+    padding: 190px 20px 30px;
   }
 }
 
@@ -132,15 +149,15 @@
   .topic-title {
     font-size: 18px !important;
   }
-  .repair-widget-title {
-    font-size: 4.5vw !important;
-  }
   .repair-summary-content-div {
     display: block;
   }
   .repair-summary-div {
-    width: 95%;
+    width: 90%;
     margin-right: 2%;
+  }
+  .repair-widget-card {
+    height: 80vw;
   }
 }
 
@@ -166,6 +183,21 @@
   }
   .device-list-component {
     margin: 20px 0;
+  }
+  .repair-widget-card {
+    height: auto;
+    min-height: 200px;
+  }
+  .repair-card-button {
+    position: inherit;
+    padding: 50px 0 0;
+  }
+  .button {
+    margin: inherit;
+  }
+  .input-component {
+    font-size: 3vw !important;
+    padding: 20px 15px;
   }
 }
 
@@ -196,6 +228,7 @@
     margin-bottom: 8px !important;
   }
   .repair-choose-device-container {
+    /* padding: 20px 20px 100px; */
     padding: 20px;
   }
   .device-item-container {
@@ -205,7 +238,7 @@
     font-size: 3vw;
   }
   .device-repair-item > p {
-    font-size: 3.5vw;
+    font-size: 3vw;
   }
   .repair-another-device {
     display: block;
@@ -220,15 +253,11 @@
     margin-bottom: 10px;
   }
   .repair-summary-img {
-    width: 60px;
-  }
-  .repair-summary-title {
-    font-size: 15px !important;
-    margin-bottom: 10px !important;
+    width: 11vw;
   }
   .repair-summary-service, .repair-summary-service-child {
     font-size: 13px !important;
-  }
+  }  
 }
 
 @media (max-width: 425px) {
@@ -249,7 +278,7 @@
     font-size: 16px !important;
   }
   .card-why-customer {
-    height: 165px;
+    height: 175px;
   }
   .section1-top {
     margin-bottom: 25px !important;
@@ -276,6 +305,10 @@
   .footer-others, .footer-others > img {
     height: 22px;
   }
+  .input-component {
+    font-size: 3.5vw !important;
+    padding: 20px 15px;
+  }
 }
 
 @media (max-width: 380px) {
@@ -294,5 +327,8 @@
   }
   .button {
     min-width: 80px;
+  }
+  .custom-select {
+    font-size: 3.5vw !important;
   }
 }
